@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELURU CHANDRASEKHAR | Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #ffe8e8, #e3f0ff, #e8ffe5);
+      background-size: 400% 400%;
+      animation: bgMove 12s infinite;
+      color: #222;
+      perspective: 1000px;
+      /* Enables 3D depth */
+    }
+
+    @keyframes bgMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 10%;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+    }
+
+    nav h1 {
+      color: #fff;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      transform: translateZ(10px);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      font-weight: 600;
+      transition: transform .4s, color .4s;
+    }
+
+    nav a:hover {
+      color: #ffe082;
+      transform: scale(1.1);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 160px 10% 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      font-weight: 100;
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #ff512f, #dd2476);
+      -webkit-background-clip: text;
+      color: transparent;
+      transform: translateZ(30px);
+    }
+
+    .hero-text p {
+      color: #333;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .hero-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 280px;
+      height: 280px;
+      margin: 50px auto;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg,
+          #ff4b2b,
+          #ff416c,
+          #ffaf40,
+          #2af598,
+          #009efd,
+          #8e2de2,
+          #ff4b2b);
+      padding: 8px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      animation: spin-slow 6s linear infinite;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes rotateGradient {
+      0% {
+        background-position: 0% 50%;
+        transform: rotate(0deg);
+      }
+
+      100% {
+        background-position: 100% 50%;
+        transform: rotate(360deg);
+      }
+    }
+
+
+
+    .social-bar {
+      margin: 20px 0;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #2193b0, #6dd5ed);
+      padding: 12px 30px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .4s, box-shadow .4s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* SECTION TITLES */
+    h2 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #f12711, #f5af19);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 90px 10%;
+    }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .skill {
+      padding: 25px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      font-weight: 700;
+      text-align: center;
+      transition: transform .8s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow .5s;
+      transform-style: preserve-3d;
+    }
+
+    .skill:hover {
+      transform: rotateY(25deg) translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* PROJECT CARDS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+    }
+
+    .project-card {
+      padding: 25px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+      transition: transform 0.8s, box-shadow 0.5s;
+      transform-style: preserve-3d;
+    }
+
+    .project-card:hover {
+      transform: rotateX(15deg) rotateY(-10deg) scale(1.03);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card h3 {
+      background: linear-gradient(90deg, #ee0979, #ff6a00);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 1.5rem;
+    }
+
+    /* CONTACT */
+    #contact p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 10px;
+      transition: transform .4s;
+    }
+
+    #contact p:hover {
+      transform: translateX(10px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(90deg, #8360c3, #2ebf91);
+      padding: 40px;
+      color: #fff;
+      text-align: center;
+      margin-top: 60px;
+      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+      transform: translateZ(10px);
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h1>VELURU CHANDRASEKHAR</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h2>Mern Stack Learner & Cybersecurity Enthusiast</h2>
+      <p>I build clean, modern, secure, and scalable digital solutions with strong focus on performance, UI/UX, and
+        cybersecurity best-practices.</p>
+
+      <div class="social-bar">
+        <a href="https://www.instagram.com/attitude_chowdary?igsh=bWtveGQ3NWwwN3kx" target="_blank">📸</a>
+        <a href="https://github.com/chandrasekhar450" target="_blank">💻</a>
+        <a href="https://wa.me/9949408547" target="_blank"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            style="width:26px; vertical-align:middle;"></a>
+        <a href="mailto:chandrasekharveluru0@gmail.com" target="_blank">✉️</a>
+        <a href="https://www.linkedin.com/in/veluru-chandrasekhar-chowdary-5190522b4" target="_blank">🔗</a>
+      </div>
+
+      <a href="#" class="btn">Download Resume</a>
+    </div>
+
+    <div class="hero-img">
+      <img src="./profile.jpeg.jpeg" alt="Profile Image">
+
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>👤 About Me</h2>
+    <p>I am a highly motivated developer specializing in MERN Stack Development, Cybersecurity, Cloud Architecture, and
+      AI-driven automation. I enjoy building efficient, modern, professional, and impactful digital solutions.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>🛠️ Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML & CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React.js</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Cybersecurity Basics</div>
+      <div class="skill">Cloud (AWS)</div>
+      <div class="skill"> Soc </div>
+      <div class="skill">Mongo DB</div>
+      <div class="skill">Bash Scripting</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>📁 Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Face Recognition System</h3>
+        <p>A modern face recognition system that identifies people using unique facial features.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Professional Portfolio</h3>
+        <p>A clean, elegant, and responsive personal website created with modern frontend technologies.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Hotel booking</h3>
+        <p>Developed a responsive hotel booking web application that allows users to browse available rooms, view
+          details, and make reservations through an intuitive interface..</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Secure Authentication System</h3>
+        <p>A security-focused login system using hashing, token validation, and role-based access control.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>✉️ Contact</h2>
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+        style="width:24px; vertical-align:middle;"> Email: chandrasekharveluru0@gmail.com</p>
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+        style="width:24px; vertical-align:middle;"> Instagram:
+      https://www.instagram.com/attitude_chowdary?igsh=bWtveGQ3NWwwN3kx</p>
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        style="width:24px; vertical-align:middle;"> WhatsApp: +91 9949408547</p>
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+        style="width:24px; vertical-align:middle;"> GitHub: https://github.com/chandrasekhar450</p>
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+        style="width:24px; vertical-align:middle;"> LinkedIn:
+      https://www.linkedin.com/in/veluru-chandrasekhar-chowdary-5190522b4</p>
+  </section>
+
+  <footer>
+    VELURU CHANDRASEKHAR
+  </footer>
+</body>
+
+</html>
